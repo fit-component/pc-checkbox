@@ -15,6 +15,7 @@
   "dependencies": {
     "react": "^0.14.7",
     "classnames": "^2.2.1",
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "fit-style": "^0.0.1"
   }
 }
