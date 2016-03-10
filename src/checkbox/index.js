@@ -28,31 +28,33 @@ export default class Checkbox extends React.Component {
     }
 
     render() {
-        let classname = classNames({
+        const {className, size, disabled, label, children, ...others} = this.props
+        const classes = classNames({
             '_namespace': true,
             'i-checks': true,
-            'i-checks-lg': this.props.size === 'large',
-            'i-checks-sm': this.props.size === 'small',
-            'disabled': this.props.disabled
+            'i-checks-lg': size === 'large',
+            'i-checks-sm': size === 'small',
+            'disabled': disabled,
+            'form-container': !_.isEmpty(label),
+            [className]: className
         })
 
         let childs = (
-            <label style={this.props.style}
-                   className={classname}>
+            <label {...others} className={classes}>
                 <input type="checkbox"
-                       disabled={this.props.disabled}
+                       disabled={disabled}
                        checked={this.state.checked}
                        onChange={this.handleChange.bind(this)}/>
                 <i></i>
-                <span>{this.props.children}</span>
+                <span>{children}</span>
             </label>
         )
 
-        if (!_.isEmpty(this.props.label)) {
+        if (!_.isEmpty(label)) {
             childs = (
-                <div className="form-container">
+                <div {...others} className={classes}>
                     <label style={{width:this.props.labelWidth||null}}
-                           className="form-control-label">{this.props.label}</label>
+                           className="form-control-label">{label}</label>
                     {childs}
                 </div>
             )
@@ -63,8 +65,10 @@ export default class Checkbox extends React.Component {
 }
 
 Checkbox.defaultProps = {
-    style: {},
+    // @desc 是否禁用
     disabled: false,
+
+    // @desc 值产生修改的回调
     onChange: ()=> {
     }
 }
