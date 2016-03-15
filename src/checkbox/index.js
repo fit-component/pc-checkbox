@@ -28,7 +28,7 @@ export default class Checkbox extends React.Component {
     }
 
     render() {
-        const {className, size, disabled, label, children, ...others} = this.props
+        const {className, size, disabled, label, children, onChange, ...others} = this.props
         const classes = classNames({
             '_namespace': true,
             'i-checks': true,
