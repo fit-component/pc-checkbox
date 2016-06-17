@@ -1,6 +1,6 @@
 {
   "name": "fit-checkbox",
-  "version": "3.0.12",
+  "version": "3.0.14",
   "description": "多选框",
   "main": "lib/index.js",
   "scripts": {
