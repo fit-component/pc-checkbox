@@ -6,8 +6,19 @@ import './index.scss'
 export default class Checkbox extends React.Component {
     constructor(props) {
         super(props)
+
+        let checked
+
+        if (this.props.defaultChecked !== undefined) {
+            checked = this.props.defaultChecked
+        }
+
+        if (this.props.checked !== undefined) {
+            checked = this.props.checked
+        }
+
         this.state = {
-            checked: this.props.defaultChecked || this.props.checked
+            checked
         }
     }
 
@@ -30,17 +41,17 @@ export default class Checkbox extends React.Component {
     render() {
         const {className, size, disabled, label, children, ...others} = this.props
         const classes = classNames({
-            '_namespace': true,
-            'i-checks': true,
-            'i-checks-lg': size === 'large',
-            'i-checks-sm': size === 'small',
-            'disabled': disabled,
+            '_namespace'    : true,
+            'i-checks'      : true,
+            'i-checks-lg'   : size === 'large',
+            'i-checks-sm'   : size === 'small',
+            'disabled'      : disabled,
             'form-container': !_.isEmpty(label),
-            [className]: className
+            [className]     : className
         })
 
         let childs = (
-            <label {...others} className={classes}>
+            <label className={classes}>
                 <input type="checkbox"
                        disabled={disabled}
                        checked={this.state.checked}
@@ -70,5 +81,8 @@ Checkbox.defaultProps = {
 
     // @desc 值产生修改的回调
     onChange: ()=> {
-    }
+    },
+
+    // @desc 是否处于选中状态
+    defaultChecked: false
 }
