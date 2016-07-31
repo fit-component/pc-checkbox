@@ -1,8 +1,8 @@
-import React from 'react'
-import Checkbox from 'fit-checkbox'
+import * as React from 'react'
+import Checkbox from '../../src'
 
-export default class Demo extends React.Component {
-    constructor(props) {
+export default class Demo extends React.Component <any,any> {
+    constructor(props: any) {
         super(props)
         this.state = {
             checked: false,
@@ -10,13 +10,13 @@ export default class Demo extends React.Component {
         }
     }
 
-    handleCheck(checked) {
+    handleCheck(checked: boolean) {
         this.setState({
             checked: checked
         })
     }
 
-    handleDisable(checked) {
+    handleDisable(checked: boolean) {
         this.setState({
             disabled: checked
         })
