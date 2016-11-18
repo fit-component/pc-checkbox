@@ -1,6 +1,6 @@
 {
   "name": "fit-checkbox",
-  "version": "3.0.32",
+  "version": "3.0.37",
   "description": "多选框",
   "main": "lib/index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "react": "^0.14.0 || ^15.0.0",
     "classnames": "^2.2.3",
     "lodash": "^3.10.1",
-    "fit-transmit-transparently": "^3.1.38"
+    "fit-transmit-transparently": "^3.1.43"
   },
   "typings": "lib/index.d.ts"
 }
